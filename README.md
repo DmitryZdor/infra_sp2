@@ -60,3 +60,13 @@ DB_HOST=db # название сервиса (контейнера)
 DB_PORT=5432 # порт для подключения к БД
 
 ```
+### Команды для заполнения базы данными
+
+копируем файл с базами данных из /infra  в папку app
+```
+docker cp fixtures.json <id контенера>:/app
+```
+запускаем команду для загрузки баз
+```
+docker-compose exec web python manage.py loaddata fixtures.json
+```
